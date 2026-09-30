@@ -30,9 +30,16 @@
         <div class="max-w-[1080px] mx-auto px-4 py-3 flex items-center justify-between gap-3 flex-wrap">
             <a href="{{ route('home') }}" class="font-bold text-[16px] text-[#0f172a]">WikPrestasi</a>
 
-            <div class="hidden md:flex gap-1.5">
+           <div class="hidden md:flex gap-1.5">
                 <a href="{{ route('home') }}" class="px-3.5 py-1.5 rounded-lg text-[#475569] text-[13px]">Beranda</a>
-                <a href="#" class="px-3.5 py-1.5 rounded-lg text-[#475569] text-[13px]">Isi Data Siswa</a>
+                @guest
+                    <a href="{{ route('login') }}" class="px-3.5 py-1.5 rounded-lg text-[#475569] text-[13px]">Isi Data Siswa</a>
+                @endguest
+                @auth
+                    @if (auth()->user()->isTeacher())
+                        <a href="{{ route('admin.dashboard') }}" class="px-3.5 py-1.5 rounded-lg text-[#475569] text-[13px]">Dashboard</a>
+                    @endif
+                @endauth
             </div>
 
             <div class="flex items-center gap-2">

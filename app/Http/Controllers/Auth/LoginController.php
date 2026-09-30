@@ -22,10 +22,12 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('home')->with(
-            'success',
-            'Berhasil login.'
-        );;
+
+            if (Auth::user()->isTeacher()) {
+                return redirect()->route('admin.dashboard')->with('success', 'Berhasil login.');
+            }
+
+            return redirect()->route('home')->with('success', 'Berhasil login.');
         }
 
         return back()
