@@ -4,127 +4,74 @@
 @section('nav', 'galeri')
 
 @section('content')
-<style>
-    .wk-hero {
-        width: 100%; padding: 48px 0 44px; text-align: center; color: #fff;
-        background: radial-gradient(circle at 50% 0%, #1e3a6e 0%, #0b1730 65%);
-    }
-    .wk-hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 10px; }
-    .wk-hero p { color: #b6c2da; font-size: 13px; max-width: 520px; margin: 0 auto 26px; }
-    .wk-search {
-        background: #fff; border-radius: 12px; padding: 8px; max-width: 760px; margin: 0 auto;
-        display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
-    }
-    .wk-search .box {
-        flex: 1 1 220px; display: flex; align-items: center; gap: 8px; background: #f1f4fb;
-        border-radius: 8px; padding: 0 12px; height: 38px; color: #94a3b8;
-    }
-    .wk-search input { border: 0; background: transparent; outline: none; width: 100%; font-size: 12px; color: #1e293b; }
-    .wk-search select {
-        height: 38px; border: 0; background: #f1f4fb; border-radius: 8px;
-        padding: 0 12px; font-size: 12px; color: #334155; outline: none;
-    }
-    .wk-search button {
-        height: 38px; border: 0; border-radius: 8px; background: var(--wk-blue);
-        color: #fff; padding: 0 18px; font-size: 12px; font-weight: 600;
-    }
 
-    .wk-section-title { font-size: 17px; font-weight: 700; margin: 26px 0 14px; }
+{{-- HERO --}}
+<section class="w-full pt-12 pb-11 text-center text-white bg-[radial-gradient(circle_at_50%_0%,#1e3a6e_0%,#0b1730_65%)]">
+    <div class="max-w-[1080px] mx-auto px-4">
+        <h1 class="text-[30px] font-bold leading-[1.2] mb-2.5">Galeri Prestasi Siswa SMK Wikrama</h1>
+        <p class="text-[#b6c2da] text-[13px] max-w-[520px] mx-auto mb-[26px]">Pencatatan dan dokumentasi rekam jejak prestasi akademik, kejuaraan, &amp; non-akademik siswa bertaraf nasional dan internasional.</p>
 
-    .pcard {
-        background: #fff; border: 1px solid #e6e8f0; border-radius: 12px; padding: 2px 2px 12px; height: 100%;
-        display: flex; flex-direction: column;
-    }
-    .pthumb {
-        position: relative; aspect-ratio: 1.58; height: auto; border-radius: 10px; overflow: hidden;
-        display: flex; align-items: center; justify-content: center;
-    }
-    .pthumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .pthumb .big { font-size: 54px; color: rgba(255, 255, 255, .35); }
-    .pbadge {
-        position: absolute; top: 8px; left: 8px; font-size: 10px; font-weight: 600;
-        padding: 3px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;
-    }
-    .ptitle {
-        font-size: 13px; font-weight: 700; margin: 12px 12px 6px; line-height: 1.3;
-        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    .pstudent { font-size: 10px; margin: 0 12px 10px; color: #1e293b; }
-    .pstudent i { color: var(--wk-blue); }
-    .pstudent span { color: #64748b; }
-    .pinfo { font-size: 10px; color: #64748b; margin: 0 12px 10px; }
-    .pinfo div { display: flex; justify-content: space-between; padding: 3px 0; }
-    .pinfo b { color: #1e293b; font-weight: 600; }
-    .pbtn {
-        margin: auto 10px 0; display: block; text-align: center; background: #e8f0fe; color: var(--wk-blue);
-        border-radius: 8px; padding: 8px; font-size: 11px; font-weight: 600; text-decoration: none;
-    }
-    .wk-pagination { display: flex; gap: 6px; margin-top: 26px; }
-    .wk-pagination a {
-        width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
-        border-radius: 8px; font-size: 12px; text-decoration: none; color: #334155;
-        background: #fff; border: 1px solid #e6e8f0;
-    }
-    .wk-pagination a.active { background: var(--wk-blue); color: #fff; border-color: var(--wk-blue); }
-</style>
-
-{{-- HERO: full kiri-kanan --}}
-<section class="wk-hero">
-    <div class="wrap">
-        <h1>Galeri Prestasi Siswa SMK Wikrama</h1>
-        <p>Pencatatan dan dokumentasi rekam jejak prestasi akademik, kejuaraan, &amp; non-akademik siswa bertaraf nasional dan internasional.</p>
-
-        <form class="wk-search" method="GET" action="{{ route('home') }}">
-            <div class="box">
+        <form class="bg-white rounded-xl p-2 max-w-[760px] mx-auto flex gap-2 items-center flex-wrap text-left"
+              method="GET" action="{{ route('home') }}">
+            <div class="flex-[1_1_220px] flex items-center gap-2 bg-[#f1f4fb] rounded-lg px-3 h-[38px] text-[#94a3b8]">
                 <i class="ti ti-search"></i>
-                <input type="text" name="q" placeholder="Cari nama siswa, nama lomba, atau rombel...">
+                <input type="text" name="q" placeholder="Cari nama siswa, nama lomba, atau rombel..."
+                       class="border-0 bg-transparent outline-none w-full text-[12px] text-[#1e293b]">
             </div>
-            <select name="tahun">
+            <select name="tahun"
+                    class="h-[38px] border-0 bg-[#f1f4fb] rounded-lg px-3 text-[12px] text-[#334155] outline-none">
                 <option value="">Semua Tahun</option>
                 <option>2026</option>
                 <option>2025</option>
             </select>
-            <button type="submit"><i class="ti ti-search"></i> Cari</button>
+            <button type="submit"
+                    class="h-[38px] border-0 rounded-lg bg-wk-blue text-white px-[18px] text-[12px] font-semibold cursor-pointer">
+                <i class="ti ti-search"></i> Cari
+            </button>
         </form>
     </div>
 </section>
 
 {{-- DAFTAR PRESTASI --}}
-<div class="wrap">
-    <h2 class="wk-section-title">Daftar Kejuaraan &amp; Penghargaan</h2>
+<div class="max-w-[1080px] mx-auto px-4">
+    <h2 class="text-[17px] font-bold leading-[1.2] mt-[26px] mb-3.5">Daftar Kejuaraan &amp; Penghargaan</h2>
 
-    <div class="row g-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 min-[992px]:grid-cols-3 gap-4">
         @foreach ($prestasi as $p)
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="pcard">
-                <div class="pthumb" style="background: {{ $p['gradient'] }};">
-                    {{-- @if (!empty($p['gambar']))
-                        <img src="{{ $p['gambar'] }}" alt="Dokumentasi {{ $p['judul'] }}" loading="lazy">
-                    @else
-                        <i class="ti ti-trophy big"></i>
-                    @endif --}}
-                    <span class="pbadge"
-                          style="{{ $p['solid'] ? 'background:'.$p['warna'].';color:#fff;' : 'background:#fff;color:'.$p['warna'].';' }}">
-                        <i class="ti ti-medal"></i> {{ $p['badge'] }}
-                    </span>
-                </div>
-
-                <div class="ptitle">{{ $p['judul'] }}</div>
-                <div class="pstudent">
-                   <b>{{ $p['siswa'] }}</b> <span>· {{ $p['kelas'] }}</span>
-                </div>
-
-                <div class="pinfo">
-                    <div><span><i class="ti ti-building"></i> Penyelenggara</span><b>{{ $p['penyelenggara'] }}</b></div>
-                    <div><span><i class="ti ti-calendar"></i> Tanggal</span><b>{{ $p['tanggal'] }}</b></div>
-                </div>
-
-                <a href="#" class="pbtn">Lihat Detail →</a>
+        <div class="bg-white border border-[#e6e8f0] rounded-xl pt-0.5 px-0.5 pb-3 h-full flex flex-col">
+            <div class="relative aspect-[1.58] rounded-[10px] overflow-hidden flex items-center justify-center"
+                 style="background: {{ $p['gradient'] }};">
+                {{-- @if (!empty($p['gambar']))
+                    <img src="{{ $p['gambar'] }}" alt="Dokumentasi {{ $p['judul'] }}" loading="lazy" class="w-full h-full object-cover block">
+                @else
+                    <i class="ti ti-trophy text-[54px] text-white/35"></i>
+                @endif --}}
+                <span class="absolute top-2 left-2 text-[10px] font-semibold px-2 py-[3px] rounded-md inline-flex items-center gap-1"
+                      style="{{ $p['solid'] ? 'background:'.$p['warna'].';color:#fff;' : 'background:#fff;color:'.$p['warna'].';' }}">
+                    <i class="ti ti-medal"></i> {{ $p['badge'] }}
+                </span>
             </div>
+
+            <div class="text-[13px] font-bold leading-[1.3] mt-3 mx-3 mb-1.5 whitespace-nowrap overflow-hidden text-ellipsis">{{ $p['judul'] }}</div>
+
+            <div class="text-[10px] mx-3 mb-2.5 text-[#1e293b]">
+                <b>{{ $p['siswa'] }}</b> <span class="text-[#64748b]">· {{ $p['kelas'] }}</span>
+            </div>
+
+            <div class="text-[10px] text-[#64748b] mx-3 mb-2.5">
+                <div class="flex justify-between py-[3px]">
+                    <span><i class="ti ti-building"></i> Penyelenggara</span>
+                    <b class="text-[#1e293b] font-semibold">{{ $p['penyelenggara'] }}</b>
+                </div>
+                <div class="flex justify-between py-[3px]">
+                    <span><i class="ti ti-calendar"></i> Tanggal</span>
+                    <b class="text-[#1e293b] font-semibold">{{ $p['tanggal'] }}</b>
+                </div>
+            </div>
+
+            <a href="#" class="mt-auto mx-2.5 block text-center bg-[#e8f0fe] text-wk-blue rounded-lg p-2 text-[11px] font-semibold">Lihat Detail →</a>
         </div>
         @endforeach
     </div>
-
-
 </div>
 @endsection

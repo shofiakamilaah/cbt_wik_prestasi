@@ -38,7 +38,7 @@ class HomeController extends Controller
                 'badge' => 'Juara 1 Nasional',
                 'tahun' => '2026',
                 'judul' => 'LKS Nasional Bidang Web Technologies',
-                'siswa' => 'Andi Saputra',
+                'siswa' => 'Shofia Kamilah',
                 'kelas' => 'PPLG XI-3',
                 'penyelenggara' => 'Kemendikbudristek RI',
                 'tanggal' => '14 Feb 2026',
